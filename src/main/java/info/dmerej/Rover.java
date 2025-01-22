@@ -46,6 +46,10 @@ public class Rover {
     }
 
     public void turnLeft(){
-        direction = Direction.WEST;
+        if (direction == Direction.EAST){
+            direction = Direction.NORTH;
+        }
+        else
+            direction = Direction.WEST;
     }
 }

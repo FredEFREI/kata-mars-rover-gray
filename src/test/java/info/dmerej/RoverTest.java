@@ -97,5 +97,14 @@ public class RoverTest {
         assertEquals(Direction.WEST, rover.direction);
     }
 
+    @Test
+    void turn_left_facing_east() {
+        int x = 4;
+        int y = 2;
+        Rover rover = new Rover(x, y, Direction.EAST);
+        rover.turnLeft();
+        assertEquals(Direction.NORTH, rover.direction);
+    }
+
 
 }
