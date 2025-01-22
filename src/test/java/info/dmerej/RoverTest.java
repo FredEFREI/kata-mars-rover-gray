@@ -1,6 +1,8 @@
 package info.dmerej;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Vector;
 
@@ -124,22 +126,19 @@ public class RoverTest {
         assertEquals(Direction.EAST, rover.direction);
     }
 
-    @Test
-    void turn_right_facing_north() {
+    @ParameterizedTest
+    @CsvSource({
+            "NORTH, EAST",
+            "SOUTH, WEST",
+            "EAST, SOUTH",
+            "WEST, NORTH"
+    })
+    void turn_right(Direction initialDirection, Direction expectedDirection) {
         int x = 4;
         int y = 2;
-        Rover rover = new Rover(x, y, Direction.NORTH);
+        Rover rover = new Rover(x, y, initialDirection);
         rover.turnRight();
-        assertEquals(Direction.EAST, rover.direction);
-    }
-
-    @Test
-    void turn_right_facing_east() {
-        int x = 4;
-        int y = 2;
-        Rover rover = new Rover(x, y, Direction.EAST);
-        rover.turnRight();
-        assertEquals(Direction.SOUTH, rover.direction);
+        assertEquals(expectedDirection, rover.direction);
     }
 
 
