@@ -44,4 +44,8 @@ public class Rover {
                 break;
         }
     }
+
+    public void turnLeft(){
+        direction = Direction.WEST;
+    }
 }
