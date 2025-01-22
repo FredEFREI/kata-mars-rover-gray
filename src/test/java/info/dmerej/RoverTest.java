@@ -106,5 +106,41 @@ public class RoverTest {
         assertEquals(Direction.NORTH, rover.direction);
     }
 
+    @Test
+    void turn_left_facing_west() {
+        int x = 4;
+        int y = 2;
+        Rover rover = new Rover(x, y, Direction.WEST);
+        rover.turnLeft();
+        assertEquals(Direction.SOUTH, rover.direction);
+    }
+
+    @Test
+    void turn_left_facing_south() {
+        int x = 4;
+        int y = 2;
+        Rover rover = new Rover(x, y, Direction.SOUTH);
+        rover.turnLeft();
+        assertEquals(Direction.EAST, rover.direction);
+    }
+
+    @Test
+    void turn_right_facing_north() {
+        int x = 4;
+        int y = 2;
+        Rover rover = new Rover(x, y, Direction.NORTH);
+        rover.turnRight();
+        assertEquals(Direction.EAST, rover.direction);
+    }
+
+    @Test
+    void turn_right_facing_east() {
+        int x = 4;
+        int y = 2;
+        Rover rover = new Rover(x, y, Direction.EAST);
+        rover.turnRight();
+        assertEquals(Direction.SOUTH, rover.direction);
+    }
+
 
 }

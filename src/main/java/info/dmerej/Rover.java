@@ -46,10 +46,37 @@ public class Rover {
     }
 
     public void turnLeft(){
-        if (direction == Direction.EAST){
-            direction = Direction.NORTH;
+        switch(direction){
+            case NORTH:
+                direction = Direction.WEST;
+                break;
+            case SOUTH:
+                direction = Direction.EAST;
+                break;
+            case EAST:
+                direction = Direction.NORTH;
+                break;
+            case WEST:
+                direction = Direction.SOUTH;
+                break;
         }
-        else
-            direction = Direction.WEST;
+    }
+
+    public void turnRight(){
+        switch(direction){
+            case NORTH:
+                direction = Direction.EAST;
+                break;
+            case SOUTH:
+                direction = Direction.WEST;
+                break;
+            case EAST:
+                direction = Direction.SOUTH;
+                break;
+            case WEST:
+                direction = Direction.NORTH;
+                break;
+
+        }
     }
 }
